@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wildfiretools.io/sitemap.xml
+Sitemap: https://bwarner88.github.io/wildfire/sitemap.xml

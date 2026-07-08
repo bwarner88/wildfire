@@ -13,14 +13,13 @@ A suite of free, no-signup, browser-only calculators for lead generation markete
 | UTM Link Builder | "utm builder", "utm link generator" | `tools/utm-builder.html` |
 | Email Subject Line Tester | "email subject line tester" | `tools/subject-line-tester.html` |
 
-## Deploy (free, ~5 minutes)
+## Deployment
 
-1. Push this repo to GitHub.
-2. Repo → **Settings → Pages** → Source: *Deploy from a branch* → `main` / root. Done — live at `https://<user>.github.io/wildfire/`.
-3. **Recommended:** buy a domain (~$10/yr, the only cost). The site currently uses `wildfiretools.io` as a placeholder — check availability, or pick anything (`.io`, `.tools`, `.marketing`). Then find-and-replace `https://wildfiretools.io` across all `.html` files, `sitemap.xml`, and `robots.txt` with your real domain, and set the custom domain in GitHub Pages settings.
-4. Add the site to [Google Search Console](https://search.google.com/search-console), submit `sitemap.xml`.
+**Live at https://bwarner88.github.io/wildfire/** (GitHub Pages, `main` branch / root).
 
-Cloudflare Pages or Netlify free tiers work identically if you prefer them.
+Next steps:
+1. **Recommended:** buy a domain (~$10/yr, the only cost) — anything works (`.io`, `.tools`, `.marketing`). Then find-and-replace `https://bwarner88.github.io/wildfire` across all `.html` files, `sitemap.xml`, and `robots.txt` with the new domain, and set the custom domain in GitHub Pages settings.
+2. Add the site to [Google Search Console](https://search.google.com/search-console), submit `sitemap.xml`.
 
 ## Monetization (in order of effort)
 
