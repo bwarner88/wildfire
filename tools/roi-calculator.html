@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campaign ROI Calculator — Free Lead Gen ROI &amp; Break-Even CPL Calculator</title>
+<meta name="description" content="Free lead generation ROI calculator. Enter spend, leads, close rate, deal value, and margin to get projected revenue, profit, ROI, and your break-even CPL. No signup.">
+<link rel="canonical" href="https://wildfiretools.io/tools/roi-calculator.html">
+<meta property="og:title" content="Campaign ROI Calculator — Free Lead Gen ROI Calculator">
+<meta property="og:description" content="Project the revenue, profit, and ROI of a lead generation campaign, plus your break-even CPL. Free, no signup.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lead Gen Campaign ROI Calculator",
+  "url": "https://wildfiretools.io/tools/roi-calculator.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free calculator that projects revenue, profit, ROI, and break-even cost per lead for a lead generation campaign."
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="flame">🔥</span> Wildfire</a>
+    <div class="nav-links">
+      <a href="cpl-calculator.html">CPL</a>
+      <a href="lead-value-calculator.html">Lead Value</a>
+      <a href="roi-calculator.html">ROI</a>
+      <a href="ab-test-calculator.html">A/B Test</a>
+      <a href="utm-builder.html">UTM</a>
+      <a href="subject-line-tester.html">Subject Lines</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="tool-header">
+    <h1>Lead Gen Campaign ROI Calculator</h1>
+    <p class="lede">Project the revenue, profit, and ROI of a lead generation campaign before — or after — you run it.</p>
+  </header>
+
+  <section class="calc">
+    <div class="calc-grid">
+      <div class="field">
+        <label for="spend">Campaign spend ($)</label>
+        <input type="number" id="spend" min="0" step="any" placeholder="10000" value="10000">
+      </div>
+      <div class="field">
+        <label for="leads">Leads generated</label>
+        <input type="number" id="leads" min="0" step="1" placeholder="200" value="200">
+      </div>
+      <div class="field">
+        <label for="closeRate">Lead-to-customer rate (%)</label>
+        <input type="number" id="closeRate" min="0" max="100" step="any" placeholder="8" value="8">
+      </div>
+      <div class="field">
+        <label for="dealValue">Average deal value ($)</label>
+        <input type="number" id="dealValue" min="0" step="any" placeholder="3000" value="3000">
+      </div>
+      <div class="field">
+        <label for="margin">Gross margin (%) <span class="hint">— after cost of delivery</span></label>
+        <input type="number" id="margin" min="0" max="100" step="any" placeholder="60" value="60">
+      </div>
+    </div>
+
+    <div class="results" id="results">
+      <div class="result-row">
+        <div class="stat">
+          <div class="label">Customers won</div>
+          <div class="value" id="customersValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">Revenue</div>
+          <div class="value" id="revenueValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">ROI</div>
+          <div class="value" id="roiValue">—</div>
+          <div class="sub" id="roiSub"></div>
+        </div>
+        <div class="stat">
+          <div class="label">Break-even CPL</div>
+          <div class="value" id="breakevenValue">—</div>
+          <div class="sub" id="breakevenSub"></div>
+        </div>
+      </div>
+      <div class="verdict" id="verdict" hidden></div>
+    </div>
+  </section>
+
+  <article class="content">
+    <h2>How to calculate lead generation ROI</h2>
+    <p>Campaign ROI answers one question: for every dollar spent, how much profit came back? The formula is:</p>
+    <p><strong>ROI = (Revenue × Gross margin − Spend) ÷ Spend × 100</strong></p>
+    <p>Revenue itself builds from three inputs: leads generated, the percentage that turn into paying customers, and the average value of a closed deal. Multiply those together and you get projected revenue. That revenue then gets multiplied by gross margin — because revenue isn't profit — and spend is subtracted to find the actual dollar return before dividing by spend again to express it as a percentage.</p>
+
+    <h2>Why gross margin belongs in the ROI formula</h2>
+    <p>A lot of "ROI" calculators actually compute revenue ROI — (Revenue − Spend) ÷ Spend — and it overstates results badly. If you spend $10,000 to generate $48,000 in booked revenue, a naive revenue-ROI calculation says 380%. But if fulfilling that revenue costs 40 cents of every dollar, your real profit is $28,800, not $48,000, and true ROI drops to 188%. Still a great result — but the gap between 380% and 188% is the difference between a decision made on real numbers and one made on vanity metrics. Any campaign math that skips margin is quietly assuming your cost of delivery is zero, which it never is.</p>
+
+    <h2>ROI vs. ROAS — they are not the same thing</h2>
+    <p>ROAS (return on ad spend) is usually reported as revenue ÷ spend, with no margin applied and no distinction between a $10 impulse purchase and a $50,000 enterprise contract. It's a useful top-of-funnel efficiency signal for channels like e-commerce, where margin is fairly constant across orders. ROI, by contrast, is a profit measure — it accounts for what it actually costs you to deliver on the revenue you generated. For lead generation specifically, where "revenue" is a projection built from a close rate that hasn't fully played out yet, ROI is the more honest number to make budget decisions with. If you want the top-of-funnel efficiency view first, start with the <a href="cpl-calculator.html">cost per lead calculator</a> to see what you're paying before it converts.</p>
+
+    <h2>Worked example</h2>
+    <p>Take the calculator's defaults: $10,000 spend produces 200 leads at an 8% close rate, with a $3,000 average deal and 60% gross margin. That's 16 customers, $48,000 in revenue, and $28,800 in gross profit — a $18,800 net gain on $10,000 spent, or 188% ROI. The actual cost per lead here is $50 ($10,000 ÷ 200), while the break-even CPL — the highest you could pay per lead and still hit $0 profit — works out to $144 (deal value × close rate × margin). That $94 of headroom is your margin for error if costs creep up or close rate softens.</p>
+
+    <h2>Common mistakes that distort ROI</h2>
+    <ul>
+      <li><strong>Wrong attribution window.</strong> Crediting a campaign's revenue based on a 7-day click window when your sales cycle runs 60–90 days will always undercount ROI. Match the window to how prospects actually buy.</li>
+      <li><strong>Ignoring sales cost.</strong> Marketing-sourced leads still need SDRs and AEs to close them. If sales comp isn't reflected somewhere in your margin assumption, ROI is inflated.</li>
+      <li><strong>Measuring too early in long cycles.</strong> Judging a campaign's ROI three weeks after launch, when deals take four months to close, tells you almost nothing — you're measuring pipeline, not results. Report leads and pipeline value early, and hold the ROI verdict until enough of the cohort has had time to close.</li>
+    </ul>
+    <p>Once you know what a converted lead is worth to you, it's worth working that number backward — see the <a href="lead-value-calculator.html">lead value calculator</a> to price what you should be willing to pay per lead before you ever look at ROI.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What is a good marketing ROI?</summary>
+      <p>A common rule of thumb is that a 5:1 revenue-to-spend ratio (roughly 400% revenue ROI, before margin) is "good" and 10:1 is exceptional — but those benchmarks are frequently misapplied without margin. On a true profit basis, anything solidly above 0% is adding value; 100–300% profit ROI is a strong result for most lead gen programs once delivery costs are factored in.</p>
+    </details>
+    <details>
+      <summary>What's the difference between ROI and ROAS?</summary>
+      <p>ROAS is revenue divided by spend — a gross efficiency metric with no margin applied. ROI subtracts spend from margin-adjusted revenue before dividing, so it reflects actual profit. Two campaigns can have identical ROAS and very different ROI if their margins differ.</p>
+    </details>
+    <details>
+      <summary>How long should I wait before measuring ROI?</summary>
+      <p>At least one full average sales cycle for the cohort of leads in question, ideally longer if a meaningful share of deals close later than average. Measuring before that mostly tells you about lead volume and early pipeline, not final ROI.</p>
+    </details>
+    <details>
+      <summary>Should I include salaries in the ROI calculation?</summary>
+      <p>For comparing channels or campaigns against each other, keep salaries out and use direct costs plus gross margin — it keeps the comparison fair. For a company-wide view of whether marketing is paying for itself, use fully loaded costs including marketing and sales headcount.</p>
+    </details>
+  </article>
+
+  <aside class="rec-box">
+    <h2>Tools we recommend for tracking campaign ROI</h2>
+    <p>Affiliate links — they keep Wildfire free and don't change your price.</p>
+    <ul>
+      <!-- TODO: replace # with your affiliate links (see README monetization section) -->
+      <li><a href="#" rel="sponsored nofollow">HubSpot</a> — CRM and attribution reporting to tie closed revenue back to the campaign that sourced it.</li>
+      <li><a href="#" rel="sponsored nofollow">Supermetrics</a> — pull spend and conversion data from every ad platform into one report so ROI math doesn't rely on manual spreadsheets.</li>
+      <li><a href="#" rel="sponsored nofollow">Unbounce</a> — landing pages built for conversion; lifting close rate is usually the fastest way to move ROI.</li>
+    </ul>
+  </aside>
+
+  <section class="subscribe">
+    <h2>Get one lead gen tactic a week</h2>
+    <p>A short, practical email. No fluff, unsubscribe anytime.</p>
+    <!-- TODO: point action at your Buttondown/ConvertKit form URL (see README) -->
+    <form action="#" method="post" onsubmit="alert('Hook this form up to your email provider — see README.'); return false;">
+      <input type="email" name="email" placeholder="you@company.com" required>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <a href="../index.html">Wildfire Tools</a>. Runs 100% in your browser.</span>
+    <span>Some outbound links are affiliate links.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) {
+    if (!isFinite(n)) return '—';
+    return '$' + n.toLocaleString(undefined, { minimumFractionDigits: Math.abs(n) < 100 ? 2 : 0, maximumFractionDigits: Math.abs(n) < 100 ? 2 : 0 });
+  };
+
+  function calc() {
+    var spend = parseFloat($('spend').value);
+    var leads = parseFloat($('leads').value);
+    var closeRate = parseFloat($('closeRate').value);
+    var dealValue = parseFloat($('dealValue').value);
+    var margin = parseFloat($('margin').value);
+
+    if (!(spend > 0) || !(leads > 0) || !(closeRate > 0) || !(dealValue > 0) || !(margin > 0)) {
+      $('customersValue').textContent = '—';
+      $('revenueValue').textContent = '—';
+      $('roiValue').textContent = '—';
+      $('roiValue').className = 'value';
+      $('roiSub').textContent = '';
+      $('breakevenValue').textContent = '—';
+      $('breakevenSub').textContent = '';
+      $('verdict').hidden = true;
+      return;
+    }
+
+    var customers = leads * (closeRate / 100);
+    var revenue = customers * dealValue;
+    var profit = revenue * (margin / 100) - spend;
+    var roi = (profit / spend) * 100;
+    var breakevenCPL = dealValue * (closeRate / 100) * (margin / 100);
+    var actualCPL = spend / leads;
+
+    $('customersValue').textContent = customers.toFixed(1);
+    $('revenueValue').textContent = fmt(revenue);
+
+    var roiEl = $('roiValue');
+    roiEl.className = 'value ' + (roi >= 0 ? 'good' : 'bad');
+    var sign = roi >= 0 ? '+' : '';
+    roiEl.textContent = sign + roi.toFixed(1) + '%';
+    $('roiSub').textContent = (profit >= 0 ? 'profit: ' : 'loss: ') + fmt(Math.abs(profit));
+
+    $('breakevenValue').textContent = fmt(breakevenCPL);
+    $('breakevenSub').textContent = 'your actual CPL: ' + fmt(actualCPL);
+
+    var v = $('verdict');
+    v.hidden = false;
+    if (profit >= 0) {
+      var headroom = breakevenCPL - actualCPL;
+      var headroomPct = (headroom / breakevenCPL) * 100;
+      v.textContent = 'Profitable — this campaign nets about ' + fmt(profit) + ' in profit, a ' + roi.toFixed(1) + '% ROI. Your actual CPL of ' + fmt(actualCPL) + ' is ' + fmt(headroom) + ' below the ' + fmt(breakevenCPL) + ' break-even CPL, leaving about ' + headroomPct.toFixed(0) + '% headroom before this campaign stops paying for itself.';
+    } else {
+      var neededCloseRate = (spend * 10000) / (leads * dealValue * margin);
+      v.textContent = 'Not profitable at these numbers — you\'re losing about ' + fmt(Math.abs(profit)) + ' (' + roi.toFixed(1) + '% ROI). To break even, either your close rate needs to rise from ' + closeRate + '% to about ' + neededCloseRate.toFixed(1) + '%, or your CPL needs to drop from ' + fmt(actualCPL) + ' to ' + fmt(breakevenCPL) + '.';
+    }
+  }
+
+  ['spend', 'leads', 'closeRate', 'dealValue', 'margin'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+
+</body>
+</html>

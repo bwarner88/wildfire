@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wildfiretools.io/sitemap.xml

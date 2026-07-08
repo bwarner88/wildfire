@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Subject Line Tester — Free Subject Line Score &amp; Spam Checker</title>
+<meta name="description" content="Free email subject line tester. Score your subject line for length, spam trigger words, and the signals that correlate with opens — before you hit send. No signup.">
+<link rel="canonical" href="https://wildfiretools.io/tools/subject-line-tester.html">
+<meta property="og:title" content="Email Subject Line Tester — Free Subject Line Score">
+<meta property="og:description" content="Score your subject line for length, spam triggers, and open-rate signals. Free, no signup.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  #checks { list-style: none; padding: 0; margin: 18px 0 0; }
+  #checks li { padding: 9px 0; border-top: 1px solid var(--border); font-size: 0.92rem; }
+  #checks li:first-child { border-top: none; }
+  #checks li.fail { color: var(--bad); }
+  #checks li.neutral { color: var(--text-muted); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Email Subject Line Tester",
+  "url": "https://wildfiretools.io/tools/subject-line-tester.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free tool to score email subject lines for length, spam-trigger words, and the signals that correlate with opens."
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="flame">🔥</span> Wildfire</a>
+    <div class="nav-links">
+      <a href="cpl-calculator.html">CPL</a>
+      <a href="lead-value-calculator.html">Lead Value</a>
+      <a href="roi-calculator.html">ROI</a>
+      <a href="ab-test-calculator.html">A/B Test</a>
+      <a href="utm-builder.html">UTM</a>
+      <a href="subject-line-tester.html">Subject Lines</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="tool-header">
+    <h1>Email Subject Line Tester</h1>
+    <p class="lede">Score your subject line before you hit send. Checks length, spam triggers, and the signals that correlate with opens.</p>
+  </header>
+
+  <section class="calc">
+    <div class="calc-grid">
+      <div class="field">
+        <label for="subjectInput">Subject line <span class="hint">— type or paste it below, score updates live</span></label>
+        <input type="text" id="subjectInput" placeholder="How {FirstName} can cut cost per lead by 30%" value="How {FirstName} can cut cost per lead by 30%">
+      </div>
+    </div>
+
+    <div class="results" id="results">
+      <div class="result-row">
+        <div class="stat">
+          <div class="label">Subject line score</div>
+          <div class="value" id="scoreValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">Characters</div>
+          <div class="value" id="charValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">Words</div>
+          <div class="value" id="wordValue">—</div>
+        </div>
+      </div>
+      <ul id="checks"></ul>
+    </div>
+  </section>
+
+  <article class="content">
+    <h2>Why your subject line is the highest-leverage test in email</h2>
+    <p>Of everything you test in an email campaign, the subject line moves the needle hardest per minute of effort. It's the single biggest lever on open rate, and open rate gates everything downstream — a brilliant offer inside an email nobody opens generates zero leads. Body copy, CTA placement, and send time all matter, but they only get a chance to work once the subject line has already done its job. That's why it deserves a dedicated pass before every send, not a guess typed in as an afterthought.</p>
+
+    <h2>What actually drives opens</h2>
+    <p>The subject line never works alone. Inbox clients show three things together: sender name, subject line, and preview text (the snippet pulled from the email's first line or a hidden preheader). A strong subject paired with a blank or redundant preview text is a wasted opportunity — the preview text is free real estate that either repeats the subject or extends it with a second reason to open. If your sender name is a generic no-reply address, no subject line trick will fully offset the trust deficit. Treat all three as one unit: recognizable sender, clear subject, complementary preview.</p>
+
+    <h2>How long should a subject line be?</h2>
+    <p>The 30–55 character range is the safest target. Below about 15 characters, a subject usually doesn't carry enough information to justify an open. Above roughly 70 characters, it starts getting clipped — iPhone Mail shows around 35–40 characters in the list view, the Gmail app on Android trims to about 40–50, and even generous desktop clients cut off well before 100. Anything important should sit in the first 40 characters so it survives truncation everywhere.</p>
+
+    <h2>Do spam filters still care about trigger words?</h2>
+    <p>Less than they used to, but not zero. In 2026, filtering is dominated by sender reputation and engagement signals — opens, replies, "delete without opening," and spam-button clicks — rather than a static keyword blocklist. A well-established sender with an engaged list can get away with words that would sink a cold domain. That said, trigger words like "guaranteed," "act now," or a string of dollar signs still correlate with lower engagement, and for senders with a thin or unproven reputation, that lower engagement is exactly the signal that erodes deliverability over time. Avoiding them costs nothing and protects the senders who need it most.</p>
+
+    <h2>Curiosity vs. clarity</h2>
+    <p>Media and consumer marketers lean on curiosity gaps — withholding the payoff to force a click. For B2B lead gen, clarity usually wins instead. Your recipient is scanning a work inbox, mildly skeptical, and deciding in under a second whether this is worth their attention. "How {FirstName} can cut cost per lead by 30%" outperforms a vague tease like "You won't believe this" for that audience, because it answers the only question that matters — is this relevant to my job — before the click.</p>
+
+    <h2>Use the score, then test in the real world</h2>
+    <p>This tool estimates the signals correlated with opens; it can't tell you what your specific list will actually do. Once you've got two candidates scoring well, don't guess which wins — run them head to head and check the <a href="ab-test-calculator.html">A/B test significance calculator</a> before declaring a winner. And remember the bigger picture: a lift in open rate that leads to more replies and demo requests eventually shows up as a lower <a href="cpl-calculator.html">cost per lead</a>, which is the number that actually matters to the business.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What is a good open rate?</summary>
+      <p>It depends heavily on list size, industry, and whether you're mailing a cold list or an engaged one. As a rough guide, 20–30% is solid for B2B lead gen sends to an opted-in list, above 35% is strong, and under 15% usually points to a list hygiene or sender reputation problem rather than a subject line problem.</p>
+    </details>
+    <details>
+      <summary>Do emojis help or hurt subject lines?</summary>
+      <p>They can help by drawing the eye in a crowded inbox, but the effect is audience-dependent and fades with overuse — the fifth email with a 🔥 in the subject this week gets ignored. For B2B lead gen, use at most one emoji, only when it adds real meaning, and always test it against a plain-text version rather than assuming it helps.</p>
+    </details>
+    <details>
+      <summary>Does personalization really work?</summary>
+      <p>Yes, but the effect size depends on what's personalized. A first-name token alone gives a modest lift and is easy for readers to tune out once every marketer does it. Personalization based on behavior or firmographic data — company name, role, a stat specific to their industry — tends to outperform a bare {FirstName} token because it signals the email was actually relevant, not just mail-merged.</p>
+    </details>
+    <details>
+      <summary>How many subject lines should I A/B test?</summary>
+      <p>Two at a time. Testing three or more splits your sample size and takes longer to reach statistical significance, which matters more than it sounds — a "winner" declared on too few sends is often just noise. Write your best two candidates, split the list evenly, and run the results through the <a href="ab-test-calculator.html">A/B calculator</a> before you commit to one for the full send.</p>
+    </details>
+  </article>
+
+  <aside class="rec-box">
+    <h2>Tools we recommend for better email sends</h2>
+    <p>Affiliate links — they keep Wildfire free and don't change your price.</p>
+    <ul>
+      <!-- TODO: replace # with your affiliate links (see README monetization section) -->
+      <li><a href="#" rel="sponsored nofollow">ConvertKit</a> — email platform with built-in subject line A/B testing, so you're not choosing on gut feel.</li>
+      <li><a href="#" rel="sponsored nofollow">NeverBounce</a> — verify your list before you send; a clean list is the biggest lever on sender reputation, bigger than any subject line.</li>
+      <li><a href="#" rel="sponsored nofollow">Hotjar</a> — once they open and click through, see what they actually do on your landing page.</li>
+    </ul>
+  </aside>
+
+  <section class="subscribe">
+    <h2>Get one lead gen tactic a week</h2>
+    <p>A short, practical email. No fluff, unsubscribe anytime.</p>
+    <!-- TODO: point action at your Buttondown/ConvertKit form URL (see README) -->
+    <form action="#" method="post" onsubmit="alert('Hook this form up to your email provider — see README.'); return false;">
+      <input type="email" name="email" placeholder="you@company.com" required>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <a href="../index.html">Wildfire Tools</a>. Runs 100% in your browser.</span>
+    <span>Some outbound links are affiliate links.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  var SPAM_WORDS = [
+    'free', 'act now', 'urgent', 'winner', 'cash', 'guarantee', 'guaranteed',
+    'no obligation', 'risk-free', 'buy now', 'click here', 'limited time',
+    'order now', '100% free', 'make money', 'earn money', 'cheap',
+    'congratulations', 'dear friend', 'double your', 'miracle', 'no cost',
+    'prize', 'viagra', 'weight loss', 'work from home', '$$$', '!!!'
+  ];
+
+  var EXCLUDE_CAPS = ['AB', 'ROI', 'CPL', 'B2B', 'CRM', 'PS', 'FYI', 'AI'];
+
+  var escapeRegex = function (s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
+
+  var triggerRegex = function (word) {
+    var esc = escapeRegex(word);
+    var startsWord = /[A-Za-z0-9]/.test(word.charAt(0));
+    var endsWord = /[A-Za-z0-9]/.test(word.charAt(word.length - 1));
+    var pattern = (startsWord ? '\\b' : '') + esc + (endsWord ? '\\b' : '');
+    return new RegExp(pattern, 'i');
+  };
+
+  function addCheck(list, status, text) {
+    var li = document.createElement('li');
+    li.className = status;
+    var mark = status === 'pass' ? '✓' : status === 'fail' ? '✗' : '○';
+    li.textContent = mark + ' ' + text;
+    list.appendChild(li);
+  }
+
+  function analyze(subject) {
+    var trimmed = subject.trim();
+    var len = trimmed.length;
+    var words = len ? trimmed.split(/\s+/) : [];
+    var wc = words.length;
+    var penalty = 0;
+    var bonus = 0;
+
+    // Spam trigger words
+    var spamHits = [];
+    SPAM_WORDS.forEach(function (w) {
+      if (triggerRegex(w).test(trimmed)) spamHits.push(w);
+    });
+    penalty += Math.min(spamHits.length * 8, 24);
+
+    // ALL CAPS words
+    var capsWords = [];
+    words.forEach(function (raw) {
+      var stripped = raw.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, '');
+      if (!stripped) return;
+      var letters = stripped.replace(/[^A-Za-z]/g, '');
+      if (letters.length < 2) return;
+      if (stripped !== stripped.toUpperCase()) return;
+      var normalized = stripped.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+      if (EXCLUDE_CAPS.indexOf(normalized) !== -1) return;
+      capsWords.push(stripped);
+    });
+    penalty += Math.min(capsWords.length * 7, 14);
+
+    // Exclamation marks
+    var exCount = (trimmed.match(/!/g) || []).length;
+    if (exCount > 1) penalty += 10;
+    else if (exCount === 1) penalty += 3;
+
+    // Deceptive RE:/FW: prefix
+    var hasREFW = /^(re|fw)\s*:/i.test(trimmed);
+    if (hasREFW) penalty += 15;
+
+    // Length
+    if (len > 0) {
+      if (len < 15) penalty += 10;
+      else if (len > 70) penalty += 15;
+      else if (len >= 56) penalty += 5;
+    }
+
+    // Word count
+    if (wc > 0) {
+      if (wc <= 2) penalty += 5;
+      else if (wc >= 13) penalty += 10;
+    }
+
+    // Bonuses
+    var hasNumber = /\d/.test(trimmed);
+    if (hasNumber) bonus += 5;
+
+    var qCount = (trimmed.match(/\?/g) || []).length;
+    if (qCount === 1) bonus += 4;
+
+    var hasPersonalization = /\{[^{}]+\}/.test(trimmed) ||
+      /\*\|[^|]+\|\*/.test(trimmed) ||
+      /\byou\b/i.test(trimmed) ||
+      /\byour\b/i.test(trimmed);
+    if (hasPersonalization) bonus += 6;
+
+    var cappedBonus = Math.min(bonus, 15);
+    var total = 100 - penalty + cappedBonus;
+    if (total < 0) total = 0;
+    if (total > 100) total = 100;
+
+    return {
+      score: total, len: len, wc: wc, spamHits: spamHits, capsWords: capsWords,
+      exCount: exCount, qCount: qCount, hasNumber: hasNumber,
+      hasPersonalization: hasPersonalization, hasREFW: hasREFW
+    };
+  }
+
+  function render() {
+    var subject = $('subjectInput').value;
+    var trimmed = subject.trim();
+    var checksEl = $('checks');
+    var scoreEl = $('scoreValue');
+    checksEl.innerHTML = '';
+
+    if (!trimmed) {
+      scoreEl.textContent = '—';
+      scoreEl.className = 'value';
+      $('charValue').textContent = '—';
+      $('wordValue').textContent = '—';
+      addCheck(checksEl, 'neutral', 'Enter a subject line to see your score.');
+      return;
+    }
+
+    var r = analyze(subject);
+
+    scoreEl.textContent = r.score;
+    scoreEl.className = 'value ' + (r.score >= 75 ? 'good' : r.score < 50 ? 'bad' : '');
+    $('charValue').textContent = r.len;
+    $('wordValue').textContent = r.wc;
+
+    // 1. Length sweet spot
+    if (r.len < 15) {
+      addCheck(checksEl, 'fail', 'Too short (' + r.len + ' chars) — doesn’t give the reader enough context to earn an open.');
+    } else if (r.len > 70) {
+      addCheck(checksEl, 'fail', 'Too long (' + r.len + ' chars) — gets truncated on mobile inboxes.');
+    } else if (r.len >= 56) {
+      addCheck(checksEl, 'neutral', 'A bit long (' + r.len + ' chars) — still readable, but 30–55 is the sweet spot.');
+    } else if (r.len >= 30) {
+      addCheck(checksEl, 'pass', 'Great length (' + r.len + ' chars) — squarely in the 30–55 sweet spot.');
+    } else {
+      addCheck(checksEl, 'neutral', 'On the short side (' + r.len + ' chars) — acceptable, though 30–55 tends to perform best.');
+    }
+
+    // 2. Word count
+    if (r.wc <= 2) {
+      addCheck(checksEl, 'fail', 'Only ' + r.wc + (r.wc === 1 ? ' word' : ' words') + ' — likely too vague to earn a click.');
+    } else if (r.wc >= 13) {
+      addCheck(checksEl, 'fail', r.wc + ' words is a lot — readers skim subject lines, they don’t read them.');
+    } else if (r.wc >= 4 && r.wc <= 9) {
+      addCheck(checksEl, 'pass', 'Good word count (' + r.wc + ' words) — in the 4–9 word range that tends to perform best.');
+    } else {
+      addCheck(checksEl, 'neutral', 'Workable word count (' + r.wc + ' words), though 4–9 words tends to perform best.');
+    }
+
+    // 3. Spam trigger words
+    if (r.spamHits.length === 0) {
+      addCheck(checksEl, 'pass', 'No common spam-trigger words detected.');
+    } else {
+      addCheck(checksEl, 'fail', 'Contains spam-trigger word' + (r.spamHits.length === 1 ? '' : 's') + ': “' + r.spamHits.join('”, “') + '” — these get flagged more readily by engagement-based filters.');
+    }
+
+    // 4. All-caps shouting
+    if (r.capsWords.length === 0) {
+      addCheck(checksEl, 'pass', 'No shouting — no all-caps words.');
+    } else {
+      addCheck(checksEl, 'fail', 'ALL-CAPS word' + (r.capsWords.length === 1 ? '' : 's') + ' found: ' + r.capsWords.join(', ') + ' — reads as shouting and can hurt trust.');
+    }
+
+    // 5. Exclamation restraint
+    if (r.exCount === 0) {
+      addCheck(checksEl, 'pass', 'No exclamation marks — reads as calm and trustworthy.');
+    } else if (r.exCount === 1) {
+      addCheck(checksEl, 'neutral', 'One exclamation mark — fine in moderation.');
+    } else {
+      addCheck(checksEl, 'fail', r.exCount + ' exclamation marks — reads as spammy or desperate.');
+    }
+
+    // 6. Personalization
+    if (r.hasPersonalization) {
+      addCheck(checksEl, 'pass', 'Includes personalization (a merge tag or direct address) — personalization tends to lift open rates.');
+    } else {
+      addCheck(checksEl, 'neutral', 'No personalization detected — consider a first-name token or addressing the reader directly ("you"/"your").');
+    }
+
+    // 7. Contains a number
+    if (r.hasNumber) {
+      addCheck(checksEl, 'pass', 'Contains a number — numbers add specificity and stand out in a crowded inbox.');
+    } else {
+      addCheck(checksEl, 'neutral', 'No number — a stat or figure can add credibility (not required).');
+    }
+
+    // 8. Asks a question
+    if (r.qCount >= 1) {
+      addCheck(checksEl, 'pass', 'Poses a question — questions can spark curiosity.');
+    } else {
+      addCheck(checksEl, 'neutral', 'Doesn’t ask a question — not required, but can be an effective hook.');
+    }
+  }
+
+  $('subjectInput').addEventListener('input', render);
+  render();
+})();
+</script>
+
+</body>
+</html>

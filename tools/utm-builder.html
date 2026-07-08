@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UTM Link Builder — Free Campaign Tracking URL Generator</title>
+<meta name="description" content="Free UTM link builder. Enter your URL, source, medium, and campaign to generate a clean, consistent tracking link. No signup, works entirely in your browser.">
+<link rel="canonical" href="https://wildfiretools.io/tools/utm-builder.html">
+<meta property="og:title" content="UTM Link Builder — Free Campaign Tracking URL Generator">
+<meta property="og:description" content="Build clean, consistent campaign tracking URLs — and stop wondering where your leads came from. Free, no signup.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "UTM Link Builder",
+  "url": "https://wildfiretools.io/tools/utm-builder.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free tool for building clean, consistent UTM-tagged campaign tracking URLs."
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="flame">🔥</span> Wildfire</a>
+    <div class="nav-links">
+      <a href="cpl-calculator.html">CPL</a>
+      <a href="lead-value-calculator.html">Lead Value</a>
+      <a href="roi-calculator.html">ROI</a>
+      <a href="ab-test-calculator.html">A/B Test</a>
+      <a href="utm-builder.html">UTM</a>
+      <a href="subject-line-tester.html">Subject Lines</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="tool-header">
+    <h1>UTM Link Builder</h1>
+    <p class="lede">Build clean, consistent campaign tracking URLs — and stop wondering where your leads came from.</p>
+  </header>
+
+  <section class="calc">
+    <div class="calc-grid">
+      <div class="field">
+        <label for="url">Website URL</label>
+        <input type="url" id="url" placeholder="https://example.com/landing-page">
+      </div>
+      <div class="field">
+        <label for="source">Campaign source <span class="hint">— utm_source</span></label>
+        <input type="text" id="source" placeholder="google">
+      </div>
+      <div class="field">
+        <label for="medium">Campaign medium <span class="hint">— utm_medium</span></label>
+        <input type="text" id="medium" placeholder="cpc">
+      </div>
+      <div class="field">
+        <label for="campaign">Campaign name <span class="hint">— utm_campaign</span></label>
+        <input type="text" id="campaign" placeholder="spring-promo">
+      </div>
+      <div class="field">
+        <label for="term">Campaign term <span class="hint">— optional, utm_term</span></label>
+        <input type="text" id="term" placeholder="lead+generation+software">
+      </div>
+      <div class="field">
+        <label for="content">Campaign content <span class="hint">— optional, utm_content</span></label>
+        <input type="text" id="content" placeholder="header-cta">
+      </div>
+    </div>
+
+    <div class="field" style="margin-top:16px;">
+      <label style="font-weight:400;"><input type="checkbox" id="lowercase" checked style="width:auto; margin-right:6px; vertical-align:middle;">Force lowercase (recommended)</label>
+    </div>
+
+    <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="btn-secondary" type="button" data-source="google" data-medium="cpc" style="padding:8px 14px; font-size:0.88rem;">Google Ads</button>
+      <button class="btn-secondary" type="button" data-source="facebook" data-medium="paid-social" style="padding:8px 14px; font-size:0.88rem;">Facebook Ads</button>
+      <button class="btn-secondary" type="button" data-source="linkedin" data-medium="paid-social" style="padding:8px 14px; font-size:0.88rem;">LinkedIn</button>
+      <button class="btn-secondary" type="button" data-source="newsletter" data-medium="email" style="padding:8px 14px; font-size:0.88rem;">Email newsletter</button>
+    </div>
+
+    <div class="results" id="results">
+      <div class="field">
+        <label for="output">Your tracking URL</label>
+        <textarea id="output" rows="3" readonly placeholder="Enter a website URL above"></textarea>
+      </div>
+      <div style="margin-top:12px;">
+        <button class="btn" type="button" id="copyBtn">Copy URL</button>
+      </div>
+    </div>
+  </section>
+
+  <article class="content">
+    <h2>What are UTM parameters?</h2>
+    <p>UTM parameters are small tags you add to the end of a URL that tell your analytics platform exactly where a visitor came from. "UTM" stands for Urchin Tracking Module — a leftover name from the analytics company Google acquired in 2005 — but all that matters today is that every major analytics tool (Google Analytics, HubSpot, Mixpanel, your CRM) reads these five tags the same way. Without them, a click from a Facebook ad and a click from an organic Facebook post both show up as "facebook.com" in your reports, and you can't tell which one is actually generating pipeline.</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Parameter</th><th>What it means</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>utm_source</td><td>The platform or publisher sending the traffic</td><td>google, facebook, newsletter</td></tr>
+          <tr><td>utm_medium</td><td>The marketing channel or delivery method</td><td>cpc, email, paid-social</td></tr>
+          <tr><td>utm_campaign</td><td>The specific initiative or promotion</td><td>spring-promo, webinar-q3</td></tr>
+          <tr><td>utm_term</td><td>The paid keyword being targeted (search ads)</td><td>lead+generation+software</td></tr>
+          <tr><td>utm_content</td><td>Differentiates similar links or creatives in the same campaign</td><td>header-cta, sidebar-banner</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>UTM naming conventions that keep your data clean</h2>
+    <p>UTMs only pay off if the data stays consistent, and consistency is a discipline problem, not a tooling problem. A few rules prevent almost every headache:</p>
+    <ul>
+      <li><strong>Lowercase everything.</strong> Most analytics tools treat <code>Google</code> and <code>google</code> as two different sources, silently splitting one channel into two rows in every report.</li>
+      <li><strong>Use dashes, not spaces.</strong> Spaces get URL-encoded into <code>%20</code> or <code>+</code>, which is ugly in a link and inconsistent across tools. This builder converts spaces to underscores automatically.</li>
+      <li><strong>Agree on a fixed medium vocabulary.</strong> Pick a short, closed list — <code>cpc</code>, <code>email</code>, <code>paid-social</code>, <code>organic-social</code>, <code>referral</code> — and never deviate. A medium field with fifteen variants of "social" is unreportable.</li>
+      <li><strong>Source is the platform, campaign is the initiative.</strong> <code>utm_source</code> answers "where," <code>utm_campaign</code> answers "why." Mixing them up (e.g. putting "spring-promo" in source) breaks channel-level rollups.</li>
+    </ul>
+    <p>Write these rules down somewhere your whole team can see them — a shared doc beats institutional memory every time someone new starts tagging links.</p>
+
+    <h2>Common UTM mistakes</h2>
+    <ul>
+      <li><strong>Tagging internal links.</strong> Adding UTMs to links between pages on your own site resets the session and overwrites the original attribution, so a visitor who arrived from a Google ad and then clicked a UTM-tagged internal banner suddenly looks like they came from wherever that banner points. Only tag links that cross onto your domain from somewhere else.</li>
+      <li><strong>Inconsistent casing.</strong> As above — "Newsletter" one week and "newsletter" the next quietly splits a single channel into two lines in every report you pull.</li>
+      <li><strong>Skipping utm_content.</strong> If you're running three ad creatives in the same campaign with the same source and medium, you have no way to tell which one is winning unless utm_content differentiates them.</li>
+    </ul>
+    <p>Once your links are tagged correctly, the next question is usually whether the traffic is worth what you're paying for it — check that with the <a href="cpl-calculator.html">cost per lead calculator</a> and the full <a href="roi-calculator.html">campaign ROI calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>Do UTM parameters affect SEO?</summary>
+      <p>No. UTM parameters don't change page content or ranking signals, and search engines like Google generally canonicalize the tagged URL back to the clean version. That said, avoid using UTM-tagged links as your primary internal navigation or in content you want indexed — keep them for external, trackable links only.</p>
+    </details>
+    <details>
+      <summary>What's the difference between utm_source and utm_medium?</summary>
+      <p>Source is where the click came from — a specific platform or publisher, like "google" or "newsletter." Medium is the type of channel that platform represents, like "cpc" or "email." The same source can have different mediums: "google" traffic might be utm_medium=cpc (an ad) or utm_medium=organic (unpaid search, though this is usually tracked automatically rather than tagged).</p>
+    </details>
+    <details>
+      <summary>Should I use UTMs in emails?</summary>
+      <p>Yes — email is one of the highest-value places to tag, since most email platforms won't tell your analytics tool anything about the click otherwise. Use utm_source for your list or platform (e.g. "newsletter"), utm_medium=email, utm_campaign for the specific send, and utm_content to split test different links within the same email.</p>
+    </details>
+    <details>
+      <summary>How do I see UTM data in GA4?</summary>
+      <p>In GA4, go to Reports → Acquisition → Traffic acquisition and look at the "Session source / medium" or "Session campaign" dimensions, or build a custom exploration filtered by utm_content or utm_term for finer detail. Data typically appears within a few hours of the first tagged click coming through.</p>
+    </details>
+  </article>
+
+  <aside class="rec-box">
+    <h2>Tools we recommend for campaign tracking</h2>
+    <p>Affiliate links — they keep Wildfire free and don't change your price.</p>
+    <ul>
+      <!-- TODO: replace # with your affiliate links (see README monetization section) -->
+      <li><a href="#" rel="sponsored nofollow">HubSpot</a> — free CRM with built-in multi-touch attribution so you can see which UTM'd campaigns actually close deals.</li>
+      <li><a href="#" rel="sponsored nofollow">Bitly</a> — shorten and brand your UTM-tagged links so they don't look like a wall of query parameters in ads and emails.</li>
+      <li><a href="#" rel="sponsored nofollow">Supermetrics</a> — pull UTM-tagged campaign data out of GA4 and ad platforms straight into your reporting dashboards.</li>
+    </ul>
+  </aside>
+
+  <section class="subscribe">
+    <h2>Get one lead gen tactic a week</h2>
+    <p>A short, practical email. No fluff, unsubscribe anytime.</p>
+    <!-- TODO: point action at your Buttondown/ConvertKit form URL (see README) -->
+    <form action="#" method="post" onsubmit="alert('Hook this form up to your email provider — see README.'); return false;">
+      <input type="email" name="email" placeholder="you@company.com" required>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <a href="../index.html">Wildfire Tools</a>. Runs 100% in your browser.</span>
+    <span>Some outbound links are affiliate links.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  function cleanValue(raw, lower) {
+    var v = (raw || '').trim();
+    if (!v) return '';
+    if (lower) v = v.toLowerCase();
+    v = v.replace(/\s+/g, '_');
+    return v;
+  }
+
+  function build() {
+    var base = $('url').value.trim();
+    var output = $('output');
+
+    if (!base) {
+      output.value = '';
+      return;
+    }
+
+    var lower = $('lowercase').checked;
+    var pairs = [
+      ['utm_source', $('source').value],
+      ['utm_medium', $('medium').value],
+      ['utm_campaign', $('campaign').value],
+      ['utm_term', $('term').value],
+      ['utm_content', $('content').value]
+    ];
+
+    var parts = [];
+    for (var i = 0; i < pairs.length; i++) {
+      var v = cleanValue(pairs[i][1], lower);
+      if (v) parts.push(pairs[i][0] + '=' + encodeURIComponent(v));
+    }
+
+    if (!parts.length) {
+      output.value = base;
+      return;
+    }
+
+    var hasQuery = base.indexOf('?') !== -1;
+    var endsWithSep = /[?&]$/.test(base);
+    var sep = endsWithSep ? '' : (hasQuery ? '&' : '?');
+
+    output.value = base + sep + parts.join('&');
+  }
+
+  function applyPreset(source, medium) {
+    $('source').value = source;
+    $('medium').value = medium;
+    build();
+  }
+
+  ['url', 'source', 'medium', 'campaign', 'term', 'content', 'lowercase'].forEach(function (id) {
+    $(id).addEventListener('input', build);
+  });
+
+  var presetButtons = document.querySelectorAll('[data-source][data-medium]');
+  for (var i = 0; i < presetButtons.length; i++) {
+    presetButtons[i].addEventListener('click', function () {
+      applyPreset(this.getAttribute('data-source'), this.getAttribute('data-medium'));
+    });
+  }
+
+  $('copyBtn').addEventListener('click', function () {
+    var output = $('output');
+    if (!output.value) return;
+    var btn = this;
+    var original = btn.textContent;
+
+    function showCopied() {
+      btn.textContent = 'Copied ✓';
+      setTimeout(function () { btn.textContent = original; }, 1500);
+    }
+
+    function fallbackCopy() {
+      output.focus();
+      output.select();
+      try {
+        document.execCommand('copy');
+        showCopied();
+      } catch (e) { /* clipboard unavailable — silently ignore */ }
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(output.value).then(showCopied, fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+  });
+
+  build();
+})();
+</script>
+
+</body>
+</html>

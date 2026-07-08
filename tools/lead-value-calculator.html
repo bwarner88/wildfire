@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lead Value Calculator — What's a Lead Worth &amp; Max CPL to Pay</title>
+<meta name="description" content="Free lead value calculator. Enter your deal value, close rate, and margin to find out what a lead is worth and the most you should pay for one (max CPL). No signup.">
+<link rel="canonical" href="https://wildfiretools.io/tools/lead-value-calculator.html">
+<meta property="og:title" content="Lead Value Calculator — What's a Lead Worth?">
+<meta property="og:description" content="Calculate what a lead is worth and the maximum you should pay per lead to hit your target return. Free, no signup.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lead Value Calculator",
+  "url": "https://wildfiretools.io/tools/lead-value-calculator.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free calculator for lead value and maximum cost per lead (CPL), based on deal value, close rate, gross margin, and target return."
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="flame">🔥</span> Wildfire</a>
+    <div class="nav-links">
+      <a href="cpl-calculator.html">CPL</a>
+      <a href="lead-value-calculator.html">Lead Value</a>
+      <a href="roi-calculator.html">ROI</a>
+      <a href="ab-test-calculator.html">A/B Test</a>
+      <a href="utm-builder.html">UTM</a>
+      <a href="subject-line-tester.html">Subject Lines</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="tool-header">
+    <h1>Lead Value Calculator</h1>
+    <p class="lede">What is a lead worth? And what's the most you should pay for one? Enter your average deal value, close rate, and margin below to get your max CPL — the ceiling you should never pay above.</p>
+  </header>
+
+  <section class="calc">
+    <div class="calc-grid">
+      <div class="field">
+        <label for="dealValue">Average deal value ($)</label>
+        <input type="number" id="dealValue" min="0" step="any" placeholder="2500" value="2500">
+      </div>
+      <div class="field">
+        <label for="closeRate">Lead-to-customer rate (%)</label>
+        <input type="number" id="closeRate" min="0" max="100" step="any" placeholder="8" value="8">
+      </div>
+      <div class="field">
+        <label for="margin">Gross margin (%) <span class="hint">— optional</span></label>
+        <input type="number" id="margin" min="0" max="100" step="any" placeholder="60" value="60">
+      </div>
+      <div class="field">
+        <label for="multiple">Target return multiple</label>
+        <select id="multiple">
+          <option value="1">1x — break-even</option>
+          <option value="2">2x</option>
+          <option value="3" selected>3x</option>
+          <option value="4">4x</option>
+          <option value="5">5x</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="results" id="results">
+      <div class="result-row">
+        <div class="stat">
+          <div class="label">Value per lead</div>
+          <div class="value" id="valuePerLead">—</div>
+          <div class="sub">revenue basis</div>
+        </div>
+        <div class="stat">
+          <div class="label">Profit per lead</div>
+          <div class="value" id="profitPerLead">—</div>
+          <div class="sub" id="profitSub"></div>
+        </div>
+        <div class="stat">
+          <div class="label">Max CPL at target</div>
+          <div class="value good" id="maxCpl">—</div>
+          <div class="sub" id="maxCplSub"></div>
+        </div>
+      </div>
+      <div class="verdict" id="verdict" hidden></div>
+    </div>
+  </section>
+
+  <article class="content">
+    <h2>How to calculate lead value</h2>
+    <p>Lead value is what a single lead is worth to your business, on average, before you spend a dollar acquiring it. The formula is simple:</p>
+    <p><strong>Value per lead = Average deal value × Lead-to-customer rate</strong></p>
+    <p>If your average deal is worth $2,500 and 8% of leads become customers, each lead is worth $2,500 × 0.08 = <strong>$200</strong> in revenue terms. That number alone is useful, but it overstates what you can actually afford to spend — it doesn't account for the cost of delivering the product or service. For that, you need profit per lead:</p>
+    <p><strong>Profit per lead = Value per lead × Gross margin</strong></p>
+    <p>At a 60% gross margin, that $200 lead is worth $200 × 0.60 = <strong>$120</strong> in gross profit. Finally, decide how much return you need on your acquisition spend — a target multiple — and divide:</p>
+    <p><strong>Max CPL = Profit per lead ÷ Target return multiple</strong></p>
+    <p>Targeting a 3x return means $120 ÷ 3 = <strong>$40</strong> is the most you should pay per lead. Pay less and your margin improves further; pay more and you're eating into the profit that's supposed to fund growth, salaries, and the next campaign.</p>
+
+    <h2>Why max CPL matters more than benchmark CPL</h2>
+    <p>Our <a href="cpl-calculator.html">CPL calculator</a> shows you what you're actually paying and how that compares to industry averages — useful for diagnosing a channel. But an "average" CPL for your industry tells you nothing about whether a lead is profitable <em>for your business specifically</em>. Two companies selling similar products can have wildly different max CPLs if their deal values, close rates, or margins differ.</p>
+    <p>Max CPL flips the question around: instead of asking "is this expensive?", it asks "can I afford this and still hit my return target?" That's the number a paid-acquisition budget should actually be built around. Anything you pay below max CPL is upside; anything above it is a channel that's quietly losing money even while "generating leads."</p>
+
+    <h2>Worked example</h2>
+    <p>Say you run a mid-market software business. Average deal value is $2,500/year, 8% of demo requests turn into customers, gross margin is 60% after hosting and support costs, and leadership wants at least a 3x return on acquisition spend before a channel is considered worth scaling.</p>
+    <ul>
+      <li>Value per lead: $2,500 × 8% = $200</li>
+      <li>Profit per lead: $200 × 60% = $120</li>
+      <li>Max CPL at 3x: $120 ÷ 3 = $40</li>
+    </ul>
+    <p>If your current CPL from paid search is $28, you're comfortably under the ceiling and can consider scaling spend. If it's $55, the channel is over budget even though it may be delivering plenty of leads — a case where volume is masking a profitability problem. Once you know your max CPL, run the actual campaign numbers through the <a href="roi-calculator.html">ROI calculator</a> to see total return across your full spend, not just per lead.</p>
+
+    <h2>Revenue value vs. profit value</h2>
+    <p>It's tempting to stop at "value per lead" (the revenue figure) and use that to set your budget. Don't — revenue isn't cash you keep. Margin matters because it strips out the cost of actually serving the customer: cost of goods, delivery, support, hosting, commissions, whatever applies to your business. A business with thin 20% margins can afford to pay far less per lead than one with 80% margins, even if their deal values and close rates are identical.</p>
+    <p>If you skip margin entirely (or leave it at 100%), this calculator simply treats value per lead and profit per lead as the same number — useful for a quick gut check, but risky for setting an actual spend ceiling. When in doubt, use a conservative margin estimate; overpaying for leads is a much easier mistake to make than underpaying.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What is a good lead value?</summary>
+      <p>There's no universal number — it depends entirely on your deal value and close rate. A $50 lead value and a $5,000 lead value can both be "good" if the resulting max CPL comfortably beats what you're actually paying. Judge lead value relative to your acquisition costs, not against other companies' numbers.</p>
+    </details>
+    <details>
+      <summary>How do I find my close rate?</summary>
+      <p>Pull it from your CRM: customers won ÷ leads created over the same period, ideally measured over a full sales cycle so you're not counting leads that haven't had time to convert yet. If you don't track this today, a CRM like the one recommended below is the fastest way to start — without it, every number in this calculator is a guess.</p>
+    </details>
+    <details>
+      <summary>Should I use revenue or profit to set max CPL?</summary>
+      <p>Profit. Revenue-based value per lead is a useful intermediate step, but setting your spend ceiling on revenue alone ignores the cost of delivering what you sold. Always apply gross margin before dividing by your target return multiple — otherwise you'll systematically overpay for leads.</p>
+    </details>
+    <details>
+      <summary>Does this work for long sales cycles?</summary>
+      <p>Yes, with one adjustment: use a close rate measured over the full length of your sales cycle, not a partial snapshot. If deals typically take six months to close, a close rate calculated after 60 days will understate true conversion and make your lead value — and therefore your max CPL — look artificially low. Segment by cohort (leads created in a given month) and wait for cycles to mature before trusting the rate.</p>
+    </details>
+  </article>
+
+  <aside class="rec-box">
+    <h2>Tools we recommend for tracking lead value</h2>
+    <p>Affiliate links — they keep Wildfire free and don't change your price.</p>
+    <ul>
+      <!-- TODO: replace # with your affiliate links (see README monetization section) -->
+      <li><a href="#" rel="sponsored nofollow">HubSpot</a> — free CRM to track close rates by source, so your close-rate input is real data, not a guess.</li>
+      <li><a href="#" rel="sponsored nofollow">Clearbit</a> — enrich inbound leads automatically to spot high-value accounts before sales even reaches out.</li>
+      <li><a href="#" rel="sponsored nofollow">Calendly</a> — faster speed-to-lead scheduling; response time is one of the biggest levers on close rate.</li>
+    </ul>
+  </aside>
+
+  <section class="subscribe">
+    <h2>Get one lead gen tactic a week</h2>
+    <p>A short, practical email. No fluff, unsubscribe anytime.</p>
+    <!-- TODO: point action at your Buttondown/ConvertKit form URL (see README) -->
+    <form action="#" method="post" onsubmit="alert('Hook this form up to your email provider — see README.'); return false;">
+      <input type="email" name="email" placeholder="you@company.com" required>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <a href="../index.html">Wildfire Tools</a>. Runs 100% in your browser.</span>
+    <span>Some outbound links are affiliate links.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) {
+    if (!isFinite(n)) return '—';
+    return '$' + n.toLocaleString(undefined, { minimumFractionDigits: n < 100 ? 2 : 0, maximumFractionDigits: n < 100 ? 2 : 0 });
+  };
+
+  function calc() {
+    var dealValue = parseFloat($('dealValue').value);
+    var closeRate = parseFloat($('closeRate').value);
+    var margin = parseFloat($('margin').value);
+    var multiple = parseFloat($('multiple').value);
+
+    if (!(dealValue > 0) || !(closeRate > 0)) {
+      $('valuePerLead').textContent = '—';
+      $('profitPerLead').textContent = '—';
+      $('profitSub').textContent = '';
+      $('maxCpl').textContent = '—';
+      $('maxCplSub').textContent = '';
+      $('verdict').hidden = true;
+      return;
+    }
+
+    var valuePerLead = dealValue * (closeRate / 100);
+    $('valuePerLead').textContent = fmt(valuePerLead);
+
+    var marginRate = margin > 0 ? margin / 100 : 1;
+    var profitPerLead = valuePerLead * marginRate;
+    $('profitPerLead').textContent = fmt(profitPerLead);
+    $('profitSub').textContent = margin > 0 ? 'at a ' + margin + '% gross margin' : 'no margin entered — using 100%';
+
+    if (multiple > 0) {
+      var maxCpl = profitPerLead / multiple;
+      $('maxCpl').textContent = fmt(maxCpl);
+      $('maxCplSub').textContent = 'for a ' + multiple + 'x return';
+
+      var v = $('verdict');
+      v.hidden = false;
+      v.textContent = 'Pay up to ' + fmt(maxCpl) + ' per lead and, at your current close rate and margin, you\'ll generate ' + fmt(profitPerLead) + ' in gross profit for every lead that converts — a ' + multiple + 'x return on what you spent to acquire it. Paying more than ' + fmt(maxCpl) + ' per lead means missing your target return, even if the channel keeps producing volume.';
+    } else {
+      $('maxCpl').textContent = '—';
+      $('maxCplSub').textContent = '';
+      $('verdict').hidden = true;
+    }
+  }
+
+  ['dealValue', 'closeRate', 'margin', 'multiple'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+
+</body>
+</html>

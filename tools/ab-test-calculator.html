@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A/B Test Significance Calculator — Free Statistical Significance Tool</title>
+<meta name="description" content="Free A/B test significance calculator. Enter visitors and conversions for two variants to get conversion rates, relative lift, p-value, and statistical significance. No signup.">
+<link rel="canonical" href="https://wildfiretools.io/tools/ab-test-calculator.html">
+<meta property="og:title" content="A/B Test Significance Calculator — Free Tool">
+<meta property="og:description" content="Check whether your A/B test winner is real or just noise. Free two-proportion z-test calculator, no signup.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "A/B Test Significance Calculator",
+  "url": "https://wildfiretools.io/tools/ab-test-calculator.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free calculator for A/B test statistical significance using a two-proportion z-test, with p-value and required sample size estimate."
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="flame">🔥</span> Wildfire</a>
+    <div class="nav-links">
+      <a href="cpl-calculator.html">CPL</a>
+      <a href="lead-value-calculator.html">Lead Value</a>
+      <a href="roi-calculator.html">ROI</a>
+      <a href="ab-test-calculator.html">A/B Test</a>
+      <a href="utm-builder.html">UTM</a>
+      <a href="subject-line-tester.html">Subject Lines</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="tool-header">
+    <h1>A/B Test Significance Calculator</h1>
+    <p class="lede">Is your winning variant actually winning — or is it noise? Check statistical significance in seconds.</p>
+  </header>
+
+  <section class="calc">
+    <div class="calc-grid">
+      <div class="field">
+        <label for="visitorsA">Variant A visitors</label>
+        <input type="number" id="visitorsA" min="0" step="1" placeholder="1000" value="1000">
+      </div>
+      <div class="field">
+        <label for="conversionsA">Variant A conversions</label>
+        <input type="number" id="conversionsA" min="0" step="1" placeholder="50" value="50">
+      </div>
+      <div class="field">
+        <label for="visitorsB">Variant B visitors</label>
+        <input type="number" id="visitorsB" min="0" step="1" placeholder="1000" value="1000">
+      </div>
+      <div class="field">
+        <label for="conversionsB">Variant B conversions</label>
+        <input type="number" id="conversionsB" min="0" step="1" placeholder="65" value="65">
+      </div>
+      <div class="field">
+        <label for="confidence">Confidence level</label>
+        <select id="confidence">
+          <option value="90">90%</option>
+          <option value="95" selected>95%</option>
+          <option value="99">99%</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="results" id="results">
+      <div class="result-row">
+        <div class="stat">
+          <div class="label">Conversion rate A</div>
+          <div class="value" id="rateAValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">Conversion rate B</div>
+          <div class="value" id="rateBValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">Relative lift</div>
+          <div class="value" id="liftValue">—</div>
+          <div class="sub" id="liftSub"></div>
+        </div>
+        <div class="stat">
+          <div class="label">p-value</div>
+          <div class="value" id="pValue">—</div>
+          <div class="sub" id="pSub"></div>
+        </div>
+      </div>
+      <div class="verdict" id="verdict" hidden></div>
+    </div>
+  </section>
+
+  <article class="content">
+    <h2>What “statistical significance” actually means</h2>
+    <p>Statistical significance answers one narrow question: if variant A and variant B actually performed identically, how likely is it that random chance alone produced a gap this big in your data? That likelihood is the p-value. A p-value of 0.03 means there's roughly a 3% chance you'd see a difference this large (or larger) purely from noise, even with no real effect. It doesn't tell you the size of the effect, whether it will hold up next month, or whether it's practically meaningful for your business — it only tells you whether you can currently rule out coincidence.</p>
+
+    <h2>Why “B looks 10% better” after 40 conversions means nothing</h2>
+    <p>Small sample sizes produce huge, meaningless swings. If variant A gets 20 conversions and variant B gets 22, B is "10% better" — but that gap is well within what random noise produces on its own. Flip a coin 20 times and you'll often get runs that look like a pattern. The fix isn't to eyeball the percentage difference; it's to run the numbers through a proper test. This calculator uses a two-proportion z-test, the standard method for comparing conversion rates between two groups, so you get an actual answer instead of a gut feeling dressed up as data.</p>
+
+    <h2>The peeking problem</h2>
+    <p>The single most common way marketers fool themselves with A/B tests is "peeking" — checking results every day and stopping the moment the test crosses your significance threshold. Every time you peek and make a stop/continue decision, you get another chance for a random fluctuation to look significant. Run enough peeks and you'll eventually see a "significant" result on a test with zero real effect a large share of the time, even though your threshold says 5%. The fix: decide your sample size and test duration in advance, then look once at the end. If you must monitor along the way, treat early "significant" readings as informational, not a stop signal.</p>
+
+    <h2>How long should you run a test?</h2>
+    <p>Two rules matter more than any calculator: run in full week increments (traffic and conversion behavior shift by day of week — a 4-day test overweights whichever days it caught), and don't call a test before you hit a reasonable minimum sample per variant, generally a few hundred conversions per variant if you can get them. If your required sample size estimate below implies months of runtime, the test as designed can't detect a difference that small in a reasonable timeframe — consider testing a bigger, bolder change instead of a minor tweak.</p>
+
+    <h2>One-tailed vs. two-tailed</h2>
+    <p>This calculator uses a <strong>two-tailed</strong> test, which checks whether B is different from A in either direction (better or worse) rather than assuming in advance that B can only win. Two-tailed is the more conservative, more defensible choice for marketing tests, since you rarely know for certain which way a change will move behavior before you run it. If you see A/B tools reporting significance you can't replicate, a one-tailed test on their end is a common culprit — it makes it easier to declare a winner.</p>
+    <p>Once you've confirmed a real winner, make sure the campaign math still works — check the new conversion rate's impact on <a href="cpl-calculator.html">cost per lead</a>, and if the test was on an email send, run your subject lines through the <a href="subject-line-tester.html">subject line tester</a> before your next campaign.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What confidence level should I use?</summary>
+      <p>95% is the standard default for marketing tests and what most tools use out of the box. Use 90% only for low-stakes decisions where acting on a false positive costs little. Reserve 99% for high-stakes, hard-to-reverse changes (like a full site redesign) where you want to be very sure before committing.</p>
+    </details>
+    <details>
+      <summary>What if my test is "almost" significant?</summary>
+      <p>A p-value of 0.06 is not "basically significant" — it's not significant. Resist the urge to round it off. Your options are to keep running the test to gather more data (this calculator estimates how much more), or to accept that the effect, if real, is too small to detect reliably with the traffic you have.</p>
+    </details>
+    <details>
+      <summary>Can I test more than two variants?</summary>
+      <p>Not with this calculator — it's built for a single A vs. B comparison. Testing three or more variants at once (A/B/C/D tests) requires correcting your significance threshold for the extra comparisons, or the false-positive rate creeps up with every variant you add. Run one calculator comparison per pair, or use dedicated multivariate testing software.</p>
+    </details>
+    <details>
+      <summary>Does this work for email subject lines?</summary>
+      <p>Yes — the same math applies to any two-option test with a binary outcome (opened vs. didn't, clicked vs. didn't). Enter your recipient counts as "visitors" and opens or clicks as "conversions." For help drafting the subject lines themselves, see the <a href="subject-line-tester.html">subject line tester</a>.</p>
+    </details>
+  </article>
+
+  <aside class="rec-box">
+    <h2>Tools we recommend for A/B testing</h2>
+    <p>Affiliate links — they keep Wildfire free and don't change your price.</p>
+    <ul>
+      <!-- TODO: replace # with your affiliate links (see README monetization section) -->
+      <li><a href="#" rel="sponsored nofollow">Unbounce</a> — landing page builder with built-in A/B testing, so you can launch variants without engineering.</li>
+      <li><a href="#" rel="sponsored nofollow">VWO</a> — dedicated experimentation platform for running and tracking tests at scale (Convert is a solid alternative).</li>
+      <li><a href="#" rel="sponsored nofollow">Hotjar</a> — heatmaps and session recordings to figure out what's actually worth testing before you build a variant.</li>
+    </ul>
+  </aside>
+
+  <section class="subscribe">
+    <h2>Get one lead gen tactic a week</h2>
+    <p>A short, practical email. No fluff, unsubscribe anytime.</p>
+    <!-- TODO: point action at your Buttondown/ConvertKit form URL (see README) -->
+    <form action="#" method="post" onsubmit="alert('Hook this form up to your email provider — see README.'); return false;">
+      <input type="email" name="email" placeholder="you@company.com" required>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <a href="../index.html">Wildfire Tools</a>. Runs 100% in your browser.</span>
+    <span>Some outbound links are affiliate links.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  var Z_ALPHA2 = { '90': 1.645, '95': 1.96, '99': 2.576 };
+  var Z_POWER80 = 0.8416;
+
+  function normalCdf(z) {
+    // Abramowitz & Stegun 7.1.26 erf approximation
+    var t = 1 / (1 + 0.3275911 * Math.abs(z) / Math.SQRT2);
+    var x = Math.abs(z) / Math.SQRT2;
+    var erf = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
+    var cdf = 0.5 * (1 + erf);
+    return z >= 0 ? cdf : 1 - cdf;
+  }
+
+  function fmtPct(n, digits) {
+    if (!isFinite(n)) return '—';
+    return n.toFixed(digits) + '%';
+  }
+
+  function reset(msg) {
+    $('rateAValue').textContent = '—';
+    $('rateBValue').textContent = '—';
+    var liftEl = $('liftValue');
+    liftEl.textContent = '—';
+    liftEl.className = 'value';
+    $('liftSub').textContent = '';
+    $('pValue').textContent = '—';
+    $('pSub').textContent = '';
+    var v = $('verdict');
+    if (msg) {
+      v.hidden = false;
+      v.textContent = msg;
+    } else {
+      v.hidden = true;
+    }
+  }
+
+  function calc() {
+    var nA = parseFloat($('visitorsA').value);
+    var cA = parseFloat($('conversionsA').value);
+    var nB = parseFloat($('visitorsB').value);
+    var cB = parseFloat($('conversionsB').value);
+    var confidence = $('confidence').value;
+    var zAlpha2 = Z_ALPHA2[confidence] || Z_ALPHA2['95'];
+
+    if (!(nA > 0) || !(nB > 0) || isNaN(cA) || isNaN(cB) || cA < 0 || cB < 0) {
+      reset('Enter visitor and conversion counts for both variants.');
+      return;
+    }
+    if (cA > nA || cB > nB) {
+      reset('Conversions can\'t exceed visitors — check your numbers.');
+      return;
+    }
+
+    var p1 = cA / nA;
+    var p2 = cB / nB;
+    var pPool = (cA + cB) / (nA + nB);
+    var se = Math.sqrt(pPool * (1 - pPool) * (1 / nA + 1 / nB));
+
+    $('rateAValue').textContent = fmtPct(p1 * 100, 2);
+    $('rateBValue').textContent = fmtPct(p2 * 100, 2);
+
+    if (se === 0) {
+      var liftEl0 = $('liftValue');
+      liftEl0.textContent = '—';
+      liftEl0.className = 'value';
+      $('liftSub').textContent = '';
+      $('pValue').textContent = '—';
+      $('pSub').textContent = '';
+      var v0 = $('verdict');
+      v0.hidden = false;
+      v0.textContent = 'Not enough variation in the data to run a test (conversion rate is 0% or 100% on both variants).';
+      return;
+    }
+
+    var z = (p2 - p1) / se;
+    var pValue = 2 * (1 - normalCdf(Math.abs(z)));
+
+    // Relative lift of B vs A
+    var liftEl = $('liftValue');
+    liftEl.className = 'value';
+    if (p1 === 0) {
+      liftEl.textContent = '—';
+      $('liftSub').textContent = 'variant A has no conversions yet';
+    } else {
+      var lift = ((p2 - p1) / p1) * 100;
+      var sign = lift >= 0 ? '+' : '';
+      liftEl.textContent = sign + lift.toFixed(1) + '%';
+      liftEl.classList.add(lift >= 0 ? 'good' : 'bad');
+      $('liftSub').textContent = 'B vs. A';
+    }
+
+    $('pValue').textContent = pValue < 0.0001 ? '< 0.0001' : pValue.toFixed(4);
+    $('pSub').textContent = 'two-tailed';
+
+    var alpha = { '90': 0.10, '95': 0.05, '99': 0.01 }[confidence] || 0.05;
+    var significant = pValue < alpha;
+
+    var v = $('verdict');
+    v.hidden = false;
+
+    if (significant) {
+      if (p2 > p1) {
+        v.textContent = 'Significant at the ' + confidence + '% level — you can be confident B beats A.';
+      } else if (p2 < p1) {
+        v.textContent = 'Significant at the ' + confidence + '% level — you can be confident A beats B.';
+      } else {
+        v.textContent = 'Significant at the ' + confidence + '% level, but the observed rates are identical — check your inputs.';
+      }
+      return;
+    }
+
+    // Not significant — estimate required sample size per variant.
+    var diff = p2 - p1;
+    if (diff === 0) {
+      v.textContent = 'Not significant — the two variants show identical conversion rates so far. Keep collecting data or test a bigger change.';
+      return;
+    }
+
+    var pBar = pPool;
+    var requiredN = 2 * Math.pow(zAlpha2 + Z_POWER80, 2) * pBar * (1 - pBar) / Math.pow(diff, 2);
+    var avgCurrentN = (nA + nB) / 2;
+    var additional = Math.ceil(requiredN - avgCurrentN);
+
+    if (isFinite(requiredN) && additional > 0) {
+      v.textContent = 'Not significant — you need roughly ' + additional.toLocaleString() + ' more visitors per variant (at the current conversion rates) to reliably detect this difference at the ' + confidence + '% level.';
+    } else {
+      v.textContent = 'Not significant — the observed difference is small relative to your sample. Consider running longer or testing a bigger change; a small true effect may never be worth chasing.';
+    }
+  }
+
+  ['visitorsA', 'conversionsA', 'visitorsB', 'conversionsB', 'confidence'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+    $(id).addEventListener('change', calc);
+  });
+  calc();
+})();
+</script>
+
+</body>
+</html>

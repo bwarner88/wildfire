@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cost Per Lead Calculator — Free CPL Calculator with Industry Benchmarks</title>
+<meta name="description" content="Free cost per lead (CPL) calculator. Enter your ad spend and lead count to get your CPL, cost per customer, and how you compare to industry benchmarks. No signup.">
+<link rel="canonical" href="https://wildfiretools.io/tools/cpl-calculator.html">
+<meta property="og:title" content="Cost Per Lead Calculator — Free CPL Calculator">
+<meta property="og:description" content="Calculate your cost per lead and compare against industry benchmarks. Free, no signup.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Cost Per Lead Calculator",
+  "url": "https://wildfiretools.io/tools/cpl-calculator.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free calculator for cost per lead (CPL) and cost per customer, with industry benchmark comparison."
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="flame">🔥</span> Wildfire</a>
+    <div class="nav-links">
+      <a href="cpl-calculator.html">CPL</a>
+      <a href="lead-value-calculator.html">Lead Value</a>
+      <a href="roi-calculator.html">ROI</a>
+      <a href="ab-test-calculator.html">A/B Test</a>
+      <a href="utm-builder.html">UTM</a>
+      <a href="subject-line-tester.html">Subject Lines</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="tool-header">
+    <h1>Cost Per Lead Calculator</h1>
+    <p class="lede">Enter your total campaign spend and the number of leads it produced. You'll get your CPL, your effective cost per customer, and a read on how you stack up against industry averages.</p>
+  </header>
+
+  <section class="calc">
+    <div class="calc-grid">
+      <div class="field">
+        <label for="spend">Total spend ($) <span class="hint">— ads, content, agency fees</span></label>
+        <input type="number" id="spend" min="0" step="any" placeholder="5000" value="5000">
+      </div>
+      <div class="field">
+        <label for="leads">Leads generated</label>
+        <input type="number" id="leads" min="0" step="1" placeholder="120" value="120">
+      </div>
+      <div class="field">
+        <label for="closeRate">Lead-to-customer rate (%) <span class="hint">— optional</span></label>
+        <input type="number" id="closeRate" min="0" max="100" step="any" placeholder="10" value="10">
+      </div>
+      <div class="field">
+        <label for="industry">Compare to industry</label>
+        <select id="industry">
+          <option value="0">— No comparison —</option>
+          <option value="43">B2B SaaS (~$43)</option>
+          <option value="58">Financial services (~$58)</option>
+          <option value="62">Healthcare (~$62)</option>
+          <option value="37">Education (~$37)</option>
+          <option value="44">Real estate (~$44)</option>
+          <option value="33">E-commerce (~$33)</option>
+          <option value="66">IT &amp; services (~$66)</option>
+          <option value="41">Manufacturing (~$41)</option>
+          <option value="49">Marketing agencies (~$49)</option>
+          <option value="30">Home services (~$30)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="results" id="results">
+      <div class="result-row">
+        <div class="stat">
+          <div class="label">Cost per lead</div>
+          <div class="value" id="cplValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">Cost per customer</div>
+          <div class="value" id="cpcValue">—</div>
+          <div class="sub" id="cpcSub"></div>
+        </div>
+        <div class="stat">
+          <div class="label">vs. industry avg</div>
+          <div class="value" id="benchValue">—</div>
+          <div class="sub" id="benchSub"></div>
+        </div>
+      </div>
+      <div class="verdict" id="verdict" hidden></div>
+    </div>
+  </section>
+
+  <article class="content">
+    <h2>How to calculate cost per lead</h2>
+    <p>Cost per lead (CPL) is the total amount you spend on a campaign divided by the number of leads it generates:</p>
+    <p><strong>CPL = Total marketing spend ÷ Number of leads</strong></p>
+    <p>“Total spend” should include everything it took to run the campaign — ad spend, agency or freelancer fees, software, and content production costs. Marketers who only count ad spend routinely understate their true CPL by 20–40%, which makes weak channels look healthier than they are.</p>
+
+    <h2>Average cost per lead by industry</h2>
+    <p>CPL varies enormously by industry, channel, and lead quality. These figures are directional estimates compiled from published benchmark reports — use them as a sanity check, not a target:</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Industry</th><th>Typical CPL</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>IT &amp; services</td><td>$60–75</td><td>Long sales cycles, high deal values</td></tr>
+          <tr><td>Healthcare</td><td>$55–70</td><td>Compliance limits targeting options</td></tr>
+          <tr><td>Financial services</td><td>$50–65</td><td>Competitive keywords drive costs up</td></tr>
+          <tr><td>Marketing agencies</td><td>$40–55</td><td>Crowded market, heavy content competition</td></tr>
+          <tr><td>Real estate</td><td>$35–50</td><td>Highly local; quality varies widely</td></tr>
+          <tr><td>B2B SaaS</td><td>$35–55</td><td>Content and product-led motions lower this</td></tr>
+          <tr><td>Manufacturing</td><td>$35–50</td><td>Niche audiences, less auction pressure</td></tr>
+          <tr><td>Education</td><td>$30–45</td><td>Broad audiences keep costs moderate</td></tr>
+          <tr><td>E-commerce</td><td>$25–40</td><td>Lead usually means email capture, not sales lead</td></tr>
+          <tr><td>Home services</td><td>$25–35</td><td>High intent local search converts cheaply</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Why cost per lead alone is misleading</h2>
+    <p>A $20 lead that never buys is more expensive than a $200 lead that closes. CPL only tells you what you paid at the top of the funnel — it says nothing about lead quality. That's why this calculator also asks for your lead-to-customer rate: dividing CPL by your close rate gives you <strong>cost per customer</strong>, which is the number that actually determines whether a channel is profitable.</p>
+    <p>To go one step further, work out what a lead is worth to you with our <a href="lead-value-calculator.html">lead value calculator</a>, then check full campaign economics with the <a href="roi-calculator.html">campaign ROI calculator</a>.</p>
+
+    <h2>How to lower your cost per lead</h2>
+    <ul>
+      <li><strong>Fix the landing page before the ads.</strong> Doubling conversion rate halves CPL — usually easier than halving your CPC.</li>
+      <li><strong>Narrow targeting to your ICP.</strong> Cheap, unqualified leads inflate volume but destroy cost per customer.</li>
+      <li><strong>Retarget engaged visitors.</strong> Retargeting CPLs typically run 30–60% below cold traffic.</li>
+      <li><strong>Test lead magnets, not just headlines.</strong> The offer moves conversion rates more than copy tweaks do.</li>
+      <li><strong>Kill losers fast.</strong> Run your split tests through the <a href="ab-test-calculator.html">A/B significance calculator</a> so you don't act on noise.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What counts as a “lead”?</summary>
+      <p>Anyone who gave you contact information plus permission to follow up — a form fill, a demo request, a gated download. Be consistent: if you count newsletter signups this month and demo requests next month, your CPL trend is meaningless.</p>
+    </details>
+    <details>
+      <summary>What is a good cost per lead?</summary>
+      <p>One that's comfortably below your lead value. As a rule of thumb, if a lead is worth $150 to you (deal value × close rate), a CPL under $50 leaves healthy margin for sales costs. Industry averages are a sanity check, not a goal — a “high” CPL with a high close rate can beat a “low” CPL with junk leads.</p>
+    </details>
+    <details>
+      <summary>Should CPL include salaries and overhead?</summary>
+      <p>For channel-to-channel comparisons, no — use direct campaign costs so the comparison is fair. For budget planning and reporting to finance, use fully loaded costs including the people running the campaigns.</p>
+    </details>
+    <details>
+      <summary>Is CPL the same as CPA?</summary>
+      <p>No. CPL measures cost per lead (a prospect), while CPA (cost per acquisition) usually measures cost per paying customer. CPA = CPL ÷ lead-to-customer rate, which is the “cost per customer” figure this calculator shows.</p>
+    </details>
+  </article>
+
+  <aside class="rec-box">
+    <h2>Tools we recommend for lowering CPL</h2>
+    <p>Affiliate links — they keep Wildfire free and don't change your price.</p>
+    <ul>
+      <!-- TODO: replace # with your affiliate links (see README monetization section) -->
+      <li><a href="#" rel="sponsored nofollow">Unbounce</a> — landing page builder with built-in A/B testing; the fastest CPL lever is conversion rate.</li>
+      <li><a href="#" rel="sponsored nofollow">HubSpot</a> — free CRM to actually track lead-to-customer rates per channel.</li>
+      <li><a href="#" rel="sponsored nofollow">OptinMonster</a> — exit-intent and on-site capture to squeeze more leads from traffic you already paid for.</li>
+    </ul>
+  </aside>
+
+  <section class="subscribe">
+    <h2>Get one lead gen tactic a week</h2>
+    <p>A short, practical email. No fluff, unsubscribe anytime.</p>
+    <!-- TODO: point action at your Buttondown/ConvertKit form URL (see README) -->
+    <form action="#" method="post" onsubmit="alert('Hook this form up to your email provider — see README.'); return false;">
+      <input type="email" name="email" placeholder="you@company.com" required>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <a href="../index.html">Wildfire Tools</a>. Runs 100% in your browser.</span>
+    <span>Some outbound links are affiliate links.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) {
+    if (!isFinite(n)) return '—';
+    return '$' + n.toLocaleString(undefined, { minimumFractionDigits: n < 100 ? 2 : 0, maximumFractionDigits: n < 100 ? 2 : 0 });
+  };
+
+  function calc() {
+    var spend = parseFloat($('spend').value);
+    var leads = parseFloat($('leads').value);
+    var closeRate = parseFloat($('closeRate').value);
+    var bench = parseFloat($('industry').value);
+
+    if (!(spend > 0) || !(leads > 0)) {
+      $('cplValue').textContent = '—';
+      $('cpcValue').textContent = '—';
+      $('benchValue').textContent = '—';
+      $('cpcSub').textContent = '';
+      $('benchSub').textContent = '';
+      $('verdict').hidden = true;
+      return;
+    }
+
+    var cpl = spend / leads;
+    $('cplValue').textContent = fmt(cpl);
+
+    if (closeRate > 0) {
+      var cpc = cpl / (closeRate / 100);
+      $('cpcValue').textContent = fmt(cpc);
+      $('cpcSub').textContent = 'at a ' + closeRate + '% close rate';
+    } else {
+      $('cpcValue').textContent = '—';
+      $('cpcSub').textContent = 'enter a close rate';
+    }
+
+    var benchEl = $('benchValue');
+    benchEl.className = 'value';
+    if (bench > 0) {
+      var diff = ((cpl - bench) / bench) * 100;
+      var sign = diff >= 0 ? '+' : '';
+      benchEl.textContent = sign + diff.toFixed(0) + '%';
+      benchEl.classList.add(diff <= 0 ? 'good' : 'bad');
+      $('benchSub').textContent = 'benchmark ~' + fmt(bench);
+      var v = $('verdict');
+      v.hidden = false;
+      if (diff <= -15) {
+        v.textContent = 'Your CPL is well below the industry benchmark. Before scaling spend, confirm lead quality holds — check cost per customer, not just CPL.';
+      } else if (diff <= 15) {
+        v.textContent = 'Your CPL is roughly in line with the industry benchmark. The biggest gains from here usually come from landing page conversion rate, not cheaper clicks.';
+      } else {
+        v.textContent = 'Your CPL is above the industry benchmark. Audit targeting and landing page conversion first — those two levers account for most CPL bloat.';
+      }
+    } else {
+      benchEl.textContent = '—';
+      $('benchSub').textContent = '';
+      $('verdict').hidden = true;
+    }
+  }
+
+  ['spend', 'leads', 'closeRate', 'industry'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+
+</body>
+</html>
